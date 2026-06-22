@@ -1,0 +1,35 @@
+---
+import siteData from '../data/site.json';
+---
+
+<nav class="global-nav">
+  {siteData.navigation.map(nav => (
+    <a href={nav.path}>{nav.label}</a>
+  ))}
+</nav>
+
+<style>
+  .global-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem 2.5rem;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+    width: 100%;
+  }
+
+  .global-nav a {
+    text-decoration: none;
+    color: var(--text-main);
+    text-transform: uppercase;
+    font-size: clamp(0.7rem, 2vw, 0.85rem);
+    letter-spacing: 0.15em;
+    transition: color 0.2s ease;
+  }
+  
+  .global-nav a:hover,
+  .global-nav a:focus {
+    color: var(--accent-green);
+  }
+</style>
