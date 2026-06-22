@@ -11,8 +11,8 @@ import Navigation from '../components/Navigation.astro';
       <h1 class="page-title">RSVP</h1>
       <p class="subtitle">Please let us know if you can make it by August 1st.</p>
       
-      <!-- The action attribute will be updated once you create a free Formspree account -->
-      <form class="rsvp-form" action="#" method="POST">
+      <!-- Formspree Endpoint Integrated -->
+      <form class="rsvp-form" action="https://formspree.io/f/xqevkbdl" method="POST">
         
         <div class="form-group">
           <label for="fullName">Full Name(s)</label>
@@ -154,7 +154,7 @@ import Navigation from '../components/Navigation.astro';
     margin-top: 1rem;
     padding: 1rem 2rem;
     background-color: var(--accent-green);
-    color: #1B3320; /* Dark green for high contrast text on the pastel button */
+    color: #1B3320;
     border: none;
     border-radius: 4px;
     font-size: 1rem;
