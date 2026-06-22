@@ -1,0 +1,182 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+---
+
+<Layout title="Schedule | Ahlbergs Wedding">
+  <main class="page-container">
+    <Navigation />
+    
+    <article class="content-wrapper">
+      <h1 class="page-title">Schedule of Events</h1>
+      <p class="subtitle">Here is what to expect on our special day.</p>
+      
+      <div class="timeline">
+        
+        <div class="timeline-item">
+          <div class="timeline-time">14:00</div>
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <h3 class="event-title">Ceremony</h3>
+            <p class="event-description">The wedding ceremony will take place at the main chapel. Please arrive 15 minutes early to find your seats.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">15:30</div>
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <h3 class="event-title">Mingle & Toast</h3>
+            <p class="event-description">Join us for a celebratory toast, cocktails, and light refreshments while the bridal party takes photos.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">17:30</div>
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <h3 class="event-title">Dinner Reception</h3>
+            <p class="event-description">Please take your seats for a wonderful dinner, accompanied by speeches and great company.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">21:00</div>
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <h3 class="event-title">Cake & Dancing</h3>
+            <p class="event-description">We will cut the wedding cake and immediately open the dance floor to celebrate into the night!</p>
+          </div>
+        </div>
+
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .page-container {
+    min-height: 100vh;
+    padding: clamp(2rem, 5vw, 4rem) 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .content-wrapper {
+    width: 100%;
+    max-width: 800px;
+    background: #FFFFFF;
+    padding: clamp(2rem, 5vw, 4rem);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    margin-top: 2rem;
+  }
+
+  .page-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--accent-green);
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: var(--text-main);
+    opacity: 0.7;
+    margin-bottom: 3rem;
+    font-size: 0.95rem;
+  }
+
+  .timeline {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-left: 2rem;
+  }
+
+  /* The vertical line */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 2rem;
+    width: 2px;
+    background-color: rgba(168, 213, 186, 0.4); /* Faded accent green */
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+    padding-left: 2.5rem;
+  }
+
+  .timeline-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .timeline-time {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent-green);
+    margin-bottom: 0.25rem;
+  }
+
+  .timeline-marker {
+    position: absolute;
+    left: 0;
+    top: 0.25rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--bg-color);
+    border: 3px solid var(--accent-green);
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  .event-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .event-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-main);
+    opacity: 0.8;
+  }
+
+  /* Desktop breakpoint */
+  @media (min-width: 600px) {
+    .timeline {
+      padding-left: 0;
+    }
+    .timeline::before {
+      left: 100px;
+    }
+    .timeline-item {
+      flex-direction: row;
+      padding-left: 130px;
+    }
+    .timeline-time {
+      position: absolute;
+      left: 0;
+      top: 0.25rem;
+      width: 80px;
+      text-align: right;
+      margin-bottom: 0;
+    }
+    .timeline-marker {
+      left: 100px;
+    }
+  }
+</style>
