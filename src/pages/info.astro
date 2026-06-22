@@ -1,0 +1,144 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+---
+
+<Layout title="Information | Ahlbergs Wedding">
+  <main class="page-container">
+    <Navigation />
+    
+    <article class="content-wrapper">
+      <h1 class="page-title">Wedding Information</h1>
+      
+      <section class="info-section">
+        <h2 class="section-heading">Dress Code</h2>
+        <p class="section-text">
+          We request that our guests dress in formal attire. 
+          For men, this means a dark suit and tie. For women, an elegant cocktail dress, evening gown, or formal dress suit.
+        </p>
+      </section>
+
+      <hr class="divider" />
+
+      <section class="info-section">
+        <h2 class="section-heading">Toastmasters</h2>
+        <p class="section-text">
+          Our wonderful toastmasters will be guiding the evening's celebrations. 
+          If you would like to give a speech or perform, please reach out to them directly well in advance.
+        </p>
+        <div class="toastmaster-cards">
+          <div class="card">
+            <h3 class="card-name">Toastmaster Name 1</h3>
+            <a href="mailto:email1@example.com" class="card-contact">email1@example.com</a>
+            <p class="card-contact">+46 70 000 00 00</p>
+          </div>
+          <div class="card">
+            <h3 class="card-name">Toastmaster Name 2</h3>
+            <a href="mailto:email2@example.com" class="card-contact">email2@example.com</a>
+            <p class="card-contact">+46 70 000 00 01</p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <section class="info-section">
+        <h2 class="section-heading">Gifts</h2>
+        <p class="section-text">
+          Your presence at our wedding is the greatest gift of all. However, if you wish to honor us with a gift, please visit our Registry page for more information.
+        </p>
+      </section>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .page-container {
+    min-height: 100vh;
+    padding: clamp(2rem, 5vw, 4rem) 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .content-wrapper {
+    width: 100%;
+    max-width: 800px;
+    background: #FFFFFF;
+    padding: clamp(2rem, 5vw, 4rem);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    margin-top: 2rem;
+  }
+
+  .page-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--accent-green);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .info-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-heading {
+    font-size: 1.8rem;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+  }
+
+  .section-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-main);
+    opacity: 0.85;
+  }
+
+  .divider {
+    border: 0;
+    height: 1px;
+    background: var(--accent-green);
+    opacity: 0.3;
+    margin: 2.5rem 0;
+  }
+
+  .toastmaster-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+
+  .card {
+    flex: 1;
+    min-width: 250px;
+    padding: 1.5rem;
+    border: 1px solid rgba(168, 213, 186, 0.4); /* Pastel green border */
+    border-radius: 6px;
+    background-color: var(--bg-color);
+  }
+
+  .card-name {
+    font-size: 1.2rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .card-contact {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    opacity: 0.7;
+    text-decoration: none;
+    margin-bottom: 0.25rem;
+  }
+
+  a.card-contact:hover {
+    color: var(--accent-green);
+    opacity: 1;
+  }
+</style>
