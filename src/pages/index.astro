@@ -1,20 +1,35 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
 import siteData from '../data/site.json';
 ---
 
 <Layout>
+  <!-- Full-Screen Welcome Overlay -->
   <div id="welcome-screen" class="welcome-overlay">
-    <h1 class="welcome-title">{siteData.siteName}</h1>
+    
+    <div class="welcome-title-wrapper">
+      <!-- Left Leaf (Flipped) -->
+      <svg class="decorative-leaf left-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+      </svg>
+
+      <h1 class="welcome-title">{siteData.siteName}</h1>
+
+      <!-- Right Leaf -->
+      <svg class="decorative-leaf right-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+      </svg>
+    </div>
+
     <p class="scroll-hint">Scroll or tap to enter</p>
   </div>
 
+  <!-- Primary Website Content -->
   <main class="main-content">
-    <nav class="global-nav">
-      {siteData.navigation.map(nav => (
-        <a href={nav.path}>{nav.label}</a>
-      ))}
-    </nav>
+    <Navigation />
     
     <section class="hero-section">
       <img src="/assets/hero-couple.jpg" alt="Ahlbergs Wedding" class="hero-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
@@ -40,6 +55,7 @@ import siteData from '../data/site.json';
     z-index: 50;
     transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.8s ease-in-out;
     cursor: pointer;
+    padding: 1rem;
   }
 
   .welcome-overlay.hidden {
@@ -48,19 +64,45 @@ import siteData from '../data/site.json';
     pointer-events: none;
   }
 
-  .welcome-title {
-    font-size: 4.5rem;
-    color: var(--text-main);
+  .welcome-title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.5rem, 3vw, 2rem); /* Dynamic spacing between leaves and text */
     margin-bottom: 1rem;
+  }
+
+  .decorative-leaf {
+    width: clamp(2rem, 6vw, 4rem);
+    height: clamp(2rem, 6vw, 4rem);
+    color: var(--accent-green);
+    opacity: 0.8;
+  }
+
+  /* Flip the left leaf and tilt them slightly outward */
+  .left-leaf {
+    transform: scaleX(-1) rotate(-15deg);
+  }
+
+  .right-leaf {
+    transform: rotate(-15deg);
+  }
+
+  .welcome-title {
+    font-size: clamp(2.5rem, 8vw, 5rem); 
+    color: var(--accent-green);
     text-align: center;
+    line-height: 1.1;
   }
 
   .scroll-hint {
-    font-size: 0.85rem;
+    font-size: clamp(0.7rem, 2vw, 0.85rem);
     letter-spacing: 0.15em;
     text-transform: uppercase;
     opacity: 0.5;
     animation: fadePulse 2s infinite ease-in-out;
+    text-align: center;
+    margin-top: 1rem;
   }
 
   @keyframes fadePulse {
@@ -70,34 +112,19 @@ import siteData from '../data/site.json';
 
   .main-content {
     min-height: 100vh;
-    padding: 3rem 2rem;
+    padding: clamp(2rem, 5vw, 4rem) 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-
-  .global-nav {
-    display: flex;
-    gap: 2.5rem;
-    margin-bottom: 4rem;
-  }
-
-  .global-nav a {
-    text-decoration: none;
-    color: var(--text-main);
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 0.15em;
-    transition: color 0.2s ease;
-  }
-  
-  .global-nav a:hover {
-    color: var(--accent-green);
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .hero-section {
     width: 100%;
     max-width: 900px;
+    padding: 0 1rem;
   }
 
   .hero-image {
@@ -105,6 +132,7 @@ import siteData from '../data/site.json';
     height: auto;
     border-radius: 4px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    display: block;
   }
 
   .image-placeholder-frame {
@@ -116,6 +144,8 @@ import siteData from '../data/site.json';
     justify-content: center;
     align-items: center;
     border-radius: 4px;
+    text-align: center;
+    padding: 1rem;
   }
 
   .frame-text {
