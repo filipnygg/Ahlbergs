@@ -15,6 +15,7 @@ import Navigation from '../components/Navigation.astro';
           <p class="frame-text">Add your photo to public/assets/hero-couple.jpg</p>
         </div>
 
+        <!-- Timer Overlaid on Image -->
         <div class="timer-overlay">
           <div class="countdown" id="countdown">
             <div class="time-box">
@@ -56,6 +57,7 @@ import Navigation from '../components/Navigation.astro';
         <h3 class="spotify-heading">Help Us Build the Playlist</h3>
         <p class="spotify-text">Add your favorite dancing songs to our collaborative Spotify playlist so we can celebrate all night.</p>
         
+        <!-- Insert Spotify Link Here -->
         <a href="https://open.spotify.com/playlist/YOUR_LINK_HERE" target="_blank" rel="noopener noreferrer" class="spotify-button">
           Open Spotify Playlist
         </a>
@@ -65,25 +67,41 @@ import Navigation from '../components/Navigation.astro';
 </Layout>
 
 <script>
-  // Compact script to prevent cutting off
   const targetDate = new Date("Oct 10, 2026 14:00:00").getTime();
 
-  const timer = setInterval(() => {
+  // Bundle the logic into a function we can call instantly
+  function updateCountdown() {
     const now = new Date().getTime();
     const distance = targetDate - now;
 
     if (distance < 0) {
-      clearInterval(timer);
-      document.getElementById("countdown").innerHTML = "<div style='color: white; font-size: 2rem; font-family: var(--font-heading); text-shadow: 0 4px 15px rgba(0,0,0,0.8);'>Today is the day!</div>";
-      return;
+      const countdownElement = document.getElementById("countdown");
+      if (countdownElement) {
+        countdownElement.innerHTML = "<div style='color: white; font-size: 2rem; font-family: var(--font-heading); text-shadow: 0 4px 15px rgba(0,0,0,0.8);'>Today is the day!</div>";
+      }
+      return true; // Tells the interval to stop
     }
 
-    // Calculate times and format with a leading zero (e.g., "05" instead of "5")
     document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
     document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
     document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
     document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
-  }, 1000);
+    
+    return false; // Tells the interval to keep going
+  }
+
+  // Run exactly once immediately to prevent the "00" flash
+  const isOver = updateCountdown();
+
+  // If the wedding hasn't happened yet, start the 1-second loop
+  if (!isOver) {
+    const timer = setInterval(() => {
+      const finished = updateCountdown();
+      if (finished) {
+        clearInterval(timer);
+      }
+    }, 1000);
+  }
 </script>
 
 <style>
@@ -105,12 +123,11 @@ import Navigation from '../components/Navigation.astro';
     margin-bottom: 3rem;
   }
 
-  /* Creates the positioning context for the overlay */
   .hero-image-wrapper {
     position: relative;
     width: 100%;
     border-radius: 8px;
-    overflow: hidden; /* Keeps the image and overlay inside the rounded corners */
+    overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   }
 
@@ -132,14 +149,12 @@ import Navigation from '../components/Navigation.astro';
     padding: 1rem;
   }
 
-  /* Timer Overlay Styling */
   .timer-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     padding: 2rem 1rem;
-    /* Adds a subtle dark gradient at the bottom so the white text always pops */
     background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
     display: flex;
     justify-content: center;
@@ -162,7 +177,6 @@ import Navigation from '../components/Navigation.astro';
     font-size: clamp(2.5rem, 6vw, 4rem);
     color: #FFFFFF;
     line-height: 1;
-    /* The faded dark outline / glow effect */
     text-shadow: 0 2px 15px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.4);
   }
 
@@ -176,7 +190,6 @@ import Navigation from '../components/Navigation.astro';
     text-shadow: 0 2px 8px rgba(0,0,0,0.9);
   }
 
-  /* Remaining Content Styling */
   .home-content {
     width: 100%;
     max-width: 800px;
