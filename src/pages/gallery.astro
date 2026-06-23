@@ -1,0 +1,125 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+---
+
+<Layout title="Gallery | Ahlbergs Wedding">
+  <main class="page-container">
+    <Navigation />
+    
+    <article class="content-wrapper">
+      <h1 class="page-title">Moments & Memories</h1>
+      <p class="subtitle">Help us capture the magic of the day. Please upload the photos and videos you take!</p>
+      
+      <div class="upload-section">
+        <!-- This button will trigger the Cloudinary Widget -->
+        <button id="upload_widget" class="upload-button">
+          <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+          Upload Your Photos
+        </button>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- The grid where uploaded photos will eventually display -->
+      <div id="photo-grid" class="photo-grid"></div>
+
+    </article>
+  </main>
+</Layout>
+
+<!-- Cloudinary Upload Widget Script -->
+<script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>  
+
+<script type="text/javascript">
+  // We will add your Cloud Name and Preset logic here in the next step
+</script>
+
+<style>
+  .page-container {
+    min-height: 100vh;
+    padding: clamp(2rem, 5vw, 4rem) 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .content-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    background: #FFFFFF;
+    padding: clamp(2rem, 5vw, 4rem);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    margin-top: 2rem;
+  }
+
+  .page-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--accent-green);
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: var(--text-main);
+    opacity: 0.7;
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+  }
+
+  .upload-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+
+  .upload-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    background-color: var(--accent-green);
+    color: #1B3320;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 15px rgba(168, 213, 186, 0.3);
+  }
+
+  .upload-button:hover {
+    opacity: 0.95;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(168, 213, 186, 0.5);
+  }
+
+  .upload-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .divider {
+    border: 0;
+    height: 1px;
+    background: var(--accent-green);
+    opacity: 0.2;
+    margin: 3rem 0;
+  }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+</style>
