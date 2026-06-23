@@ -42,7 +42,7 @@ import Navigation from '../components/Navigation.astro';
     uploadPreset: 'ahlbergs_wedding',
     sources: ['local', 'camera'],
     multiple: true,
-    clientAllowedFormats: ['images'],
+    clientAllowedFormats: ['png', 'jpeg', 'jpg', 'heic', 'heif', 'webp'],
     maxImageFileSize: 10000000, /* 10MB limit per photo */
     theme: "minimal"
   }, (error, result) => { 
