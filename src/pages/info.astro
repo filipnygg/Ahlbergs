@@ -60,6 +60,20 @@ import Navigation from '../components/Navigation.astro';
             </iframe>
           </div>
         </div>
+
+        <div class="travel-block">
+          <h3 class="travel-subheading">Accommodations</h3>
+          <p class="section-text">
+            If you are traveling from out of town, we recommend staying at <strong>Scandic Arlandastad or Hotell Kristina</strong>. 
+          </p>
+        </div>
+
+        <div class="travel-block">
+          <h3 class="travel-subheading">Transportation & Parking</h3>
+          <p class="section-text">
+            Free parking is available at both locations. For your convenience, we have arranged a bus to transport guests between the ceremony at Mariakyrkan and the reception at Herresta Lada.
+          </p>
+        </div>
       </section>
       
       <hr class="divider" />
@@ -178,7 +192,12 @@ import Navigation from '../components/Navigation.astro';
     gap: 1rem;
   }
 
-  /* Cursive styling for the subheadings inside the venue cards */
+  .travel-block {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  /* Cursive styling for the subheadings */
   .travel-subheading {
     font-family: var(--font-heading);
     font-size: 1.8rem;
