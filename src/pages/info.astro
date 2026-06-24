@@ -32,7 +32,6 @@ import Navigation from '../components/Navigation.astro';
               Olofsgatan 4<br />
               Sigtuna
             </p>
-            <!-- Iframe stays here -->
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2017.8754693434623!2d17.720324278035612!3d59.61843457475565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465fba56ec379625%3A0x1b4b780be9e51430!2sMariakyrkan!5e0!3m2!1ssv!2sse!4v1782212316671!5m2!1ssv!2sse" 
               width="100%" 
@@ -52,8 +51,6 @@ import Navigation from '../components/Navigation.astro';
               Odensala Herresta 236<br />
               Märsta
             </p>
-            <!-- Iframe stays here -->
-            </p>
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2015.89163615627!2d17.843297578036868!3d59.65145277477203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465fbeacf29184fd%3A0x6c643d8e3d98d084!2sHerresta%20Lada!5e0!3m2!1ssv!2sse!4v1782212611834!5m2!1ssv!2sse" 
               width="100%" 
@@ -69,7 +66,7 @@ import Navigation from '../components/Navigation.astro';
         <div class="travel-block">
           <h3 class="travel-subheading">Accommodations</h3>
           <p class="section-text">
-            If you are traveling from out of town, we recommend staying at <strong>Scandic Arlandastad or Hotell Kristina</strong>. 
+            If you are traveling from out of town, we recommend staying at <strong>[Insert Hotel Name]</strong>. We have arranged a small block of rooms under "Ahlbergs Wedding". Please book before [Insert Date] to secure the rate.
           </p>
         </div>
 
@@ -111,6 +108,43 @@ import Navigation from '../components/Navigation.astro';
           Your presence at our wedding is the greatest gift of all. However, if you wish to honor us with a gift, please visit our Registry page for more information.
         </p>
       </section>
+
+      <hr class="divider" />
+
+      <section class="info-section">
+        <h2 class="section-heading">Good to Know (FAQ)</h2>
+        <div class="faq-grid">
+          
+          <div class="faq-item">
+            <h3 class="faq-question">Are children welcome?</h3>
+            <p class="faq-answer">
+              We adore your little ones and warmly welcome them to join us for the ceremony at Mariakyrkan. However, to allow all of our guests to relax and enjoy the evening, our reception at Herresta Lada will be an adults-only celebration. We hope this advance notice allows you to arrange childcare so you can celebrate with us into the night!
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Can I bring a plus one?</h3>
+            <p class="faq-answer">
+              Due to the capacity of our venue, we are only able to accommodate the guests who are formally named on your invitation.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Can I take photos during the ceremony?</h3>
+            <p class="faq-answer">
+              Yes! We would love for you to capture the joy of our day. We just ask that you remain mindful of our professional photographer so they have the space to get the perfect shots. Feel free to share your photos with us later!
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">What should I consider regarding weather and footwear?</h3>
+            <p class="faq-answer">
+              October in Sweden can be crisp! The initial reception mingle will take place outdoors before we move inside the barn for dinner and dancing. We highly recommend bringing a warm jacket or shawl, and choosing footwear that is comfortable for walking on rustic or uneven ground.
+            </p>
+          </div>
+
+        </div>
+      </section>
     </article>
   </main>
 </Layout>
@@ -146,7 +180,6 @@ import Navigation from '../components/Navigation.astro';
     margin-bottom: 2.5rem;
   }
 
-  /* Unified sizing for all main sections */
   .section-heading {
     font-family: var(--font-heading);
     font-size: clamp(2rem, 4vw, 2.5rem);
@@ -202,7 +235,6 @@ import Navigation from '../components/Navigation.astro';
     text-align: center;
   }
 
-  /* Cursive styling for the subheadings */
   .travel-subheading {
     font-family: var(--font-heading);
     font-size: 1.8rem;
@@ -232,7 +264,6 @@ import Navigation from '../components/Navigation.astro';
     background-color: var(--bg-color);
   }
 
-  /* Cursive styling applied to Toastmaster names */
   .card-name {
     font-family: var(--font-heading);
     font-size: 1.5rem;
@@ -252,5 +283,39 @@ import Navigation from '../components/Navigation.astro';
   a.card-contact:hover {
     color: var(--accent-green);
     opacity: 1;
+  }
+
+  /* FAQ Styles */
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .faq-item {
+    background-color: #FAFAFA;
+    padding: 1.5rem;
+    border-radius: 6px;
+    border-left: 3px solid var(--accent-green);
+  }
+
+  .faq-question {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .faq-answer {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-main);
+    opacity: 0.85;
+  }
+
+  @media (min-width: 768px) {
+    .faq-grid {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 </style>
