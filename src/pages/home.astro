@@ -3,36 +3,35 @@ import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 ---
 
-<Layout title="Home | Ahlbergs Wedding">
+<Layout title="Hem | Ahlbergs Bröllop">
   <main class="page-container">
     <Navigation />
     
     <section class="hero-section">
       <div class="hero-image-wrapper">
-        <img src="/assets/hero-couple.jpg" alt="Ahlbergs Wedding" class="hero-image" onerror="this.style.display='none'; document.getElementById('placeholder').style.display='flex';" />
+        <img src="/assets/hero-couple.jpg" alt="Ahlbergs Bröllop" class="hero-image" onerror="this.style.display='none'; document.getElementById('placeholder').style.display='flex';" />
         
         <div id="placeholder" class="image-placeholder-frame" style="display: none;">
-          <p class="frame-text">Add your photo to public/assets/hero-couple.jpg</p>
+          <p class="frame-text">Lägg till er bild i public/assets/hero-couple.jpg</p>
         </div>
 
-        <!-- Timer Overlaid on Image -->
         <div class="timer-overlay">
           <div class="countdown" id="countdown">
             <div class="time-box">
               <span id="days">00</span>
-              <label>Days</label>
+              <label>Dagar</label>
             </div>
             <div class="time-box">
               <span id="hours">00</span>
-              <label>Hours</label>
+              <label>Timmar</label>
             </div>
             <div class="time-box">
               <span id="minutes">00</span>
-              <label>Mins</label>
+              <label>Min</label>
             </div>
             <div class="time-box">
               <span id="seconds">00</span>
-              <label>Secs</label>
+              <label>Sek</label>
             </div>
           </div>
         </div>
@@ -43,8 +42,8 @@ import Navigation from '../components/Navigation.astro';
       <div class="info-block">
         <h2 class="welcome-heading">Filip & Tindra</h2>
         <p class="welcome-text">
-          <strong>October 10th, 2026</strong><br /><br />
-          We are so excited to celebrate with you. Use the menu above to RSVP, view the schedule for the day, or browse our information page.
+          <strong>10 oktober 2026</strong><br /><br />
+          Vi ser så mycket fram emot att fira vår stora dag med er. Använd menyn ovan för att OSA, se dagens schema eller läsa mer information.
         </p>
       </div>
 
@@ -54,12 +53,11 @@ import Navigation from '../components/Navigation.astro';
         <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.54.659.301 1.02zM19.32 14.1c-.3.42-.84.54-1.26.24-3.36-2.04-8.52-2.64-12.54-1.44-.48.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.56-1.32 10.32-.66 14.1 1.68.48.24.6.84.24 1.26zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.781-.18-.6.18-1.2.78-1.38 4.2-1.32 11.28-1.02 15.721 1.62.54.3.72.96.42 1.5-.3.54-.96.72-1.5.42z"></path>
         </svg>
-        <h3 class="spotify-heading">Help Us Build the Playlist</h3>
-        <p class="spotify-text">Add your favorite dancing songs to our collaborative Spotify playlist so we can celebrate all night.</p>
+        <h3 class="spotify-heading">Hjälp oss bygga spellistan</h3>
+        <p class="spotify-text">Lägg till dina favoritlåtar i vår gemensamma Spotify-spellista så att vi kan dansa hela natten.</p>
         
-        <!-- Insert Spotify Link Here -->
         <a href="https://open.spotify.com/playlist/YOUR_LINK_HERE" target="_blank" rel="noopener noreferrer" class="spotify-button">
-          Open Spotify Playlist
+          Öppna Spellistan
         </a>
       </div>
     </section>
@@ -69,7 +67,6 @@ import Navigation from '../components/Navigation.astro';
 <script>
   const targetDate = new Date("Oct 10, 2026 14:00:00").getTime();
 
-  // Bundle the logic into a function we can call instantly
   function updateCountdown() {
     const now = new Date().getTime();
     const distance = targetDate - now;
@@ -77,9 +74,9 @@ import Navigation from '../components/Navigation.astro';
     if (distance < 0) {
       const countdownElement = document.getElementById("countdown");
       if (countdownElement) {
-        countdownElement.innerHTML = "<div style='color: white; font-size: 2rem; font-family: var(--font-heading); text-shadow: 0 4px 15px rgba(0,0,0,0.8);'>Today is the day!</div>";
+        countdownElement.innerHTML = "<div style='color: white; font-size: 2.5rem; font-family: var(--font-heading); text-shadow: 0 4px 15px rgba(0,0,0,0.8);'>Idag är dagen!</div>";
       }
-      return true; // Tells the interval to stop
+      return true; 
     }
 
     document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
@@ -87,19 +84,15 @@ import Navigation from '../components/Navigation.astro';
     document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
     document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
     
-    return false; // Tells the interval to keep going
+    return false;
   }
 
-  // Run exactly once immediately to prevent the "00" flash
   const isOver = updateCountdown();
 
-  // If the wedding hasn't happened yet, start the 1-second loop
   if (!isOver) {
     const timer = setInterval(() => {
       const finished = updateCountdown();
-      if (finished) {
-        clearInterval(timer);
-      }
+      if (finished) clearInterval(timer);
     }, 1000);
   }
 </script>
@@ -115,14 +108,12 @@ import Navigation from '../components/Navigation.astro';
     max-width: 1200px;
     margin: 0 auto;
   }
-
   .hero-section {
     width: 100%;
     max-width: 900px;
     padding: 0 1rem;
     margin-bottom: 3rem;
   }
-
   .hero-image-wrapper {
     position: relative;
     width: 100%;
@@ -130,13 +121,11 @@ import Navigation from '../components/Navigation.astro';
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   }
-
   .hero-image {
     width: 100%;
     height: auto;
     display: block;
   }
-
   .image-placeholder-frame {
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -148,7 +137,6 @@ import Navigation from '../components/Navigation.astro';
     text-align: center;
     padding: 1rem;
   }
-
   .timer-overlay {
     position: absolute;
     bottom: 0;
@@ -159,19 +147,16 @@ import Navigation from '../components/Navigation.astro';
     display: flex;
     justify-content: center;
   }
-
   .countdown {
     display: flex;
     gap: clamp(1rem, 4vw, 2.5rem);
     text-align: center;
   }
-
   .time-box {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-
   .time-box span {
     font-family: var(--font-heading);
     font-size: clamp(2.5rem, 6vw, 4rem);
@@ -179,7 +164,6 @@ import Navigation from '../components/Navigation.astro';
     line-height: 1;
     text-shadow: 0 2px 15px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.4);
   }
-
   .time-box label {
     font-size: clamp(0.75rem, 2vw, 0.9rem);
     color: #FFFFFF;
@@ -189,7 +173,6 @@ import Navigation from '../components/Navigation.astro';
     font-weight: 500;
     text-shadow: 0 2px 8px rgba(0,0,0,0.9);
   }
-
   .home-content {
     width: 100%;
     max-width: 800px;
@@ -199,21 +182,18 @@ import Navigation from '../components/Navigation.astro';
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     text-align: center;
   }
-
   .welcome-heading {
     font-family: var(--font-heading);
-    font-size: 2.2rem;
+    font-size: 3rem;
     color: var(--text-main);
     margin-bottom: 1rem;
   }
-
   .welcome-text {
     font-size: 1.05rem;
     line-height: 1.6;
     color: var(--text-main);
     opacity: 0.8;
   }
-
   .divider {
     border: 0;
     height: 1px;
@@ -221,27 +201,24 @@ import Navigation from '../components/Navigation.astro';
     opacity: 0.2;
     margin: 2.5rem 0;
   }
-
   .spotify-icon {
     width: 48px;
     height: 48px;
     color: #1DB954;
     margin-bottom: 1rem;
   }
-
   .spotify-heading {
-    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    font-size: 2rem;
     color: var(--text-main);
     margin-bottom: 0.5rem;
   }
-
   .spotify-text {
     font-size: 0.95rem;
     color: var(--text-main);
     opacity: 0.8;
     margin-bottom: 1.5rem;
   }
-
   .spotify-button {
     display: inline-block;
     padding: 0.8rem 2rem;
@@ -255,7 +232,6 @@ import Navigation from '../components/Navigation.astro';
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);
   }
-
   .spotify-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(29, 185, 84, 0.4);

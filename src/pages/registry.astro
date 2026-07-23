@@ -3,12 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 ---
 
-<Layout title="Registry | Ahlbergs Wedding">
+<Layout title="Önskelista | Ahlbergs Bröllop">
   <main class="page-container">
     <Navigation />
     
     <article class="content-wrapper">
-      <h1 class="page-title">Gift Registry</h1>
+      <h1 class="page-title">Önskelista</h1>
       
       <div class="registry-content">
         <svg class="gift-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -20,16 +20,16 @@ import Navigation from '../components/Navigation.astro';
         </svg>
 
         <p class="registry-text">
-          The most important thing to us is that you are able to celebrate with us on our wedding day. However, if you wish to give a gift, we will gratefully accept a small contribution towards our honeymoon.
+          Det viktigaste för oss är att ni är med och firar vår bröllopsdag. Om ni ändå vill ge en gåva, tar vi tacksamt emot ett litet bidrag till vår bröllopsresa.
         </p>
 
         <div class="contribution-box">
-          <h2 class="box-heading">Honeymoon Fund</h2>
+          <h2 class="box-heading">Bröllopsresa</h2>
           <p class="account-details"><strong>Swish:</strong> 070 591 41 88</p>
         </div>
 
         <p class="registry-text secondary-text">
-          Alternatively, if you prefer to give a physical gift, there will be a gift table available at the reception venue.
+          Föredrar ni att ge en fysisk present kommer det finnas ett presentbord på festlokalen.
         </p>
       </div>
     </article>
@@ -58,7 +58,8 @@ import Navigation from '../components/Navigation.astro';
   }
 
   .page-title {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-family: var(--font-heading); /* Tillagt för att aktivera skrivstilen */
+    font-size: clamp(3.5rem, 6vw, 4.5rem);
     color: var(--accent-green);
     margin-bottom: 2rem;
   }
@@ -103,7 +104,7 @@ import Navigation from '../components/Navigation.astro';
 
   .box-heading {
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: var(--text-main);
     margin-bottom: 1rem;
   }

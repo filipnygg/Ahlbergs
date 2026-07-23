@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import siteData from '../data/site.json';
 ---
 
-<Layout title="Welcome | Ahlbergs Wedding">
+<Layout title="Välkommen | Ahlbergs Bröllop">
   <main class="welcome-overlay">
     
     <div class="welcome-title-wrapper">
@@ -21,11 +21,11 @@ import siteData from '../data/site.json';
     </div>
 
     <form class="lock-form" action="/api/login" method="POST">
-      <input type="password" name="password" required placeholder="Enter Guest Password" />
-      <button type="submit" class="submit-button">Enter Site</button>
+      <input type="password" name="password" required placeholder="Ange gästlösenord" />
+      <button type="submit" class="submit-button">Gå in</button>
     </form>
     
-    <p id="error-message" class="error-message" style="display: none;">Incorrect password. Please try again.</p>
+    <p id="error-message" class="error-message" style="display: none;">Fel lösenord. Vänligen försök igen.</p>
 
   </main>
 </Layout>
@@ -70,7 +70,8 @@ import siteData from '../data/site.json';
   .right-leaf { transform: rotate(-15deg); }
 
   .welcome-title {
-    font-size: clamp(2.5rem, 8vw, 5rem); 
+    font-family: var(--font-heading); /* Tillagt för att aktivera skrivstilen */
+    font-size: clamp(3.5rem, 8vw, 6rem); 
     color: #000000; 
     text-align: center;
     line-height: 1.1;

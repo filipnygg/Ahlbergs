@@ -3,13 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 ---
 
-<Layout title="Schedule | Ahlbergs Wedding">
+<Layout title="Schema | Ahlbergs Bröllop">
   <main class="page-container">
     <Navigation />
     
     <article class="content-wrapper">
-      <h1 class="page-title">Schedule of Events</h1>
-      <p class="subtitle">October 10th, 2026</p>
+      <h1 class="page-title">Dagens Schema</h1>
+      <p class="subtitle">10 oktober 2026</p>
       
       <div class="timeline">
         
@@ -17,7 +17,7 @@ import Navigation from '../components/Navigation.astro';
           <div class="timeline-time">14:00</div>
           <div class="timeline-marker"></div>
           <div class="timeline-content">
-            <h3 class="event-title">The Ceremony</h3>
+            <h3 class="event-title">Vigsel</h3>
             <span class="event-location">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -25,7 +25,7 @@ import Navigation from '../components/Navigation.astro';
               </svg>
               Mariakyrkan
             </span>
-            <p class="event-description">The wedding ceremony will take place at the main church. Please arrive 15 minutes early to find your seats.</p>
+            <p class="event-description">Vigseln äger rum i Mariakyrkan. Vänligen anländ 15 minuter innan för att i lugn och ro hitta era platser.</p>
           </div>
         </div>
 
@@ -33,7 +33,7 @@ import Navigation from '../components/Navigation.astro';
           <div class="timeline-time">16:30</div>
           <div class="timeline-marker"></div>
           <div class="timeline-content">
-            <h3 class="event-title">Reception Begins</h3>
+            <h3 class="event-title">Brudskål & Mingel</h3>
             <span class="event-location">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -41,7 +41,7 @@ import Navigation from '../components/Navigation.astro';
               </svg>
               Herresta Lada
             </span>
-            <p class="event-description">Join us at the barn for a celebratory toast, cocktails, and light refreshments before dinner.</p>
+            <p class="event-description">Vi samlas vid ladan för brudskål, mingel och tilltugg innan vi sätter oss till bords.</p>
           </div>
         </div>
 
@@ -49,8 +49,8 @@ import Navigation from '../components/Navigation.astro';
           <div class="timeline-time">18:00</div>
           <div class="timeline-marker"></div>
           <div class="timeline-content">
-            <h3 class="event-title">Dinner</h3>
-            <p class="event-description">Please take your seats for a wonderful dinner, accompanied by speeches and great company.</p>
+            <h3 class="event-title">Middag</h3>
+            <p class="event-description">Slå er ner för en fantastisk middag fylld med tal, skratt och trevligt sällskap.</p>
           </div>
         </div>
 
@@ -58,8 +58,8 @@ import Navigation from '../components/Navigation.astro';
           <div class="timeline-time">21:00</div>
           <div class="timeline-marker"></div>
           <div class="timeline-content">
-            <h3 class="event-title">Cake & Dancing</h3>
-            <p class="event-description">We will cut the wedding cake and immediately open the dance floor to celebrate into the night!</p>
+            <h3 class="event-title">Tårta & Dans</h3>
+            <p class="event-description">Vi skär upp bröllopstårtan och öppnar därefter dansgolvet för att fira in i natten!</p>
           </div>
         </div>
 
@@ -77,7 +77,6 @@ import Navigation from '../components/Navigation.astro';
     align-items: center;
     width: 100%;
   }
-
   .content-wrapper {
     width: 100%;
     max-width: 800px;
@@ -87,32 +86,27 @@ import Navigation from '../components/Navigation.astro';
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     margin-top: 2rem;
   }
-
   .page-title {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: clamp(3rem, 6vw, 4rem);
     color: var(--accent-green);
     text-align: center;
     margin-bottom: 0.5rem;
     font-family: var(--font-heading);
   }
-
   .subtitle {
     text-align: center;
     color: var(--text-main);
     opacity: 0.7;
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
     font-size: 1.1rem;
     font-weight: 500;
   }
-
   .timeline {
     position: relative;
     max-width: 600px;
     margin: 0 auto;
     padding-left: 2rem;
   }
-
-  /* The vertical line */
   .timeline::before {
     content: '';
     position: absolute;
@@ -123,7 +117,6 @@ import Navigation from '../components/Navigation.astro';
     background-color: rgba(168, 213, 186, 0.4);
     transform: translateX(-50%);
   }
-
   .timeline-item {
     position: relative;
     display: flex;
@@ -131,18 +124,15 @@ import Navigation from '../components/Navigation.astro';
     margin-bottom: 3rem;
     padding-left: 2.5rem;
   }
-
   .timeline-item:last-child {
     margin-bottom: 0;
   }
-
   .timeline-time {
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--accent-green);
     margin-bottom: 0.25rem;
   }
-
   .timeline-marker {
     position: absolute;
     left: 0;
@@ -155,21 +145,17 @@ import Navigation from '../components/Navigation.astro';
     transform: translateX(-50%);
     z-index: 2;
   }
-
   .timeline-content {
     display: flex;
     flex-direction: column;
   }
-
   .event-title {
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: var(--text-main);
     margin-bottom: 0.25rem;
     line-height: 1.2;
   }
-
-  /* Stylish Location Tags */
   .event-location {
     display: inline-flex;
     align-items: center;
@@ -181,21 +167,17 @@ import Navigation from '../components/Navigation.astro';
     letter-spacing: 0.08em;
     margin-bottom: 0.75rem;
   }
-
   .event-location svg {
     width: 16px;
     height: 16px;
     opacity: 0.8;
   }
-
   .event-description {
     font-size: 0.95rem;
     line-height: 1.6;
     color: var(--text-main);
     opacity: 0.8;
   }
-
-  /* Desktop breakpoint */
   @media (min-width: 600px) {
     .timeline {
       padding-left: 0;

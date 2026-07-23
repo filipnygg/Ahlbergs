@@ -3,13 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 ---
 
-<Layout title="Gallery | Ahlbergs Wedding">
+<Layout title="Galleri | Ahlbergs Bröllop">
   <main class="page-container">
     <Navigation />
     
     <article class="content-wrapper">
-      <h1 class="page-title">Moments & Memories</h1>
-      <p class="subtitle">Help us capture the magic of the day. Please upload the photos and videos you take!</p>
+      <h1 class="page-title">Ögonblick & Minnen</h1>
+      <p class="subtitle">Hjälp oss att fånga dagens magi. Ladda gärna upp de foton och videor ni tar!</p>
       
       <div class="upload-section">
         <!-- This button will trigger the Cloudinary Widget -->
@@ -19,7 +19,7 @@ import Navigation from '../components/Navigation.astro';
             <polyline points="17 8 12 3 7 8"></polyline>
             <line x1="12" y1="3" x2="12" y2="15"></line>
           </svg>
-          Upload Your Photos
+          Ladda upp era foton
         </button>
       </div>
 
@@ -65,7 +65,7 @@ import Navigation from '../components/Navigation.astro';
   // 2. Fetch and Display the Gallery
   async function loadGallery() {
     const grid = document.getElementById('photo-grid');
-    grid.innerHTML = '<p style="text-align:center; grid-column: 1/-1; color: var(--text-main); opacity: 0.6;">Loading photos...</p>';
+    grid.innerHTML = '<p style="text-align:center; grid-column: 1/-1; color: var(--text-main); opacity: 0.6;">Laddar foton...</p>';
     
     try {
       // Ask Cloudinary for the list of photos with our specific tag
@@ -76,7 +76,7 @@ import Navigation from '../components/Navigation.astro';
       grid.innerHTML = ''; // Clear loading text
       
       if (data.resources.length === 0) {
-        grid.innerHTML = '<p style="text-align:center; grid-column: 1/-1; color: var(--text-main); opacity: 0.6;">No photos yet. Be the first to upload!</p>';
+        grid.innerHTML = '<p style="text-align:center; grid-column: 1/-1; color: var(--text-main); opacity: 0.6;">Inga foton än. Bli den första att ladda upp!</p>';
         return;
       }
 
@@ -87,12 +87,12 @@ import Navigation from '../components/Navigation.astro';
         
         const card = document.createElement('div');
         card.className = 'photo-card';
-        card.innerHTML = `<img src="${imgUrl}" alt="Guest memory" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" />`;
+        card.innerHTML = `<img src="${imgUrl}" alt="Gästminne" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" />`;
         grid.appendChild(card);
       });
     } catch (error) {
       console.error('Error loading gallery:', error);
-      grid.innerHTML = '<p style="text-align:center; grid-column: 1/-1; color: var(--text-main); opacity: 0.6;">Ready to receive photos!</p>';
+      grid.innerHTML = '<p style="text-align:center; grid-column: 1/-1; color: var(--text-main); opacity: 0.6;">Redo att ta emot foton!</p>';
     }
   }
 
@@ -121,7 +121,8 @@ import Navigation from '../components/Navigation.astro';
   }
 
   .page-title {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-family: var(--font-heading); /* Tillagt för att aktivera skrivstilen */
+    font-size: clamp(3.5rem, 6vw, 4.5rem);
     color: var(--accent-green);
     text-align: center;
     margin-bottom: 0.5rem;
