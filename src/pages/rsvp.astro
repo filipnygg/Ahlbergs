@@ -32,6 +32,10 @@ import Navigation from '../components/Navigation.astro';
               <span>Ja, vi kommer gärna!</span>
             </label>
             <label class="radio-label">
+              <input type="radio" name="attending" value="ceremony_only" />
+              <span>Vi kommer endast på vigseln (ej festen).</span>
+            </label>
+            <label class="radio-label">
               <input type="radio" name="attending" value="no" />
               <span>Nej, vi kan tyvärr inte komma.</span>
             </label>
@@ -75,7 +79,7 @@ import Navigation from '../components/Navigation.astro';
   }
 
   .page-title {
-    font-family: var(--font-heading); /* Tillagt för att aktivera skrivstilen */
+    font-family: var(--font-heading); 
     font-size: clamp(3.5rem, 6vw, 4.5rem);
     color: var(--accent-green);
     text-align: center;
